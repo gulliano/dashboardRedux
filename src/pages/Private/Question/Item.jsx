@@ -8,10 +8,13 @@ const Item = ({question}) => {
 
   const getCategory = async () => { 
 
-    const dataCategory =await getOneById('category' , question.category ) ;
+    if (question.category !=undefined) {
 
-    setCategory(dataCategory) ;
+      const dataCategory =await getOneById('category' , question.category ) ;
+      setCategory(dataCategory) ;
 
+    }
+    
    }
 
    useEffect(()=>{
