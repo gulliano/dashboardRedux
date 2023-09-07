@@ -52,7 +52,10 @@ const Public = () => {
 
     
     </div>
+   
     </div>
+
+    
   )
 }
 
