@@ -6,6 +6,7 @@ const Ajouter = () => {
   const [ ask , setAsk] = useState("") ;
   const [categories , setCategories ] = useState([]) ;
   const [ selectedCategory , setSelectedCategory ] = useState("") ;
+  const [ selectedDareOrTruth , setSelectedDareOrTruth ] = useState("") ;
 
 
   const handleChangeAsk = (event) => { 
@@ -20,6 +21,12 @@ const Ajouter = () => {
 
    }
 
+   const handleDropDareOrTruth = (event) => { 
+
+    setSelectedDareOrTruth(event.target.value ) ;
+
+ }
+
    const save = async () => { 
 
 
@@ -29,10 +36,11 @@ const Ajouter = () => {
 
         const data = {
           category : selectedCategory ,
-          question :  ask 
+          title :  ask,
+          type : selectedDareOrTruth 
         } 
 
-        await addDataToCollection("questions" , data) ;
+        await addDataToCollection("DareOrTruth" , data) ;
 
 
         setAsk("") ;
@@ -69,6 +77,11 @@ const Ajouter = () => {
             <option defaultValue={''} >Selectionnez une categorie</option>
             {categories?.map(data=><option key={data.id} value={data.id}>{data?.name}</option>)}
 
+        </select>
+        <select value={selectedDareOrTruth} onChange={handleDropDareOrTruth} className="select select-bordered w-full max-w-xs">
+            <option defaultValue={''} >Selectionnez un type</option>
+            <option value={'dare'}>Action</option>
+            <option value={'truth'}>Vérité</option>
         </select>
 
         <input type="text"  value={ask} onChange={handleChangeAsk}  placeholder="Ajouter une question" className="input input-bordered w-full max-w-xs" />

@@ -14,7 +14,7 @@ const Lister = () => {
 
   const initData = async  () => { 
 
-      const dataTemp = await getAll('questions') ; 
+      const dataTemp = await getAll('DareOrTruth') ; 
       console.log('dataTemp' , dataTemp) ;
 
       setAsks( dataTemp ) ;
@@ -35,8 +35,8 @@ const Lister = () => {
         <thead>
           <tr>
             <th>Cat.</th>
-            <th>Question</th>
-            <th></th>
+            <th>Action/Vérité</th>
+            <th>Type</th>
             <th></th>
           </tr>
         </thead>

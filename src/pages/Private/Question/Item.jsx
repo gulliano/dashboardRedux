@@ -27,8 +27,8 @@ const Item = ({question}) => {
   return (
     <tr>
       <th>{category?.name}</th>
-      <td>{question?.question}</td>
-      <td></td>
+      <td>{question?.title}</td>
+      <td>{question?.type}</td>
       <td></td>
     </tr>
   )
